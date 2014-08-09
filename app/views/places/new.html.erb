@@ -1,0 +1,12 @@
+<h1>Add a place</h1>
+
+
+<%= form_for @place do |p| %>
+	<%= p.text_field :name, placeholder: "Name" %><br />
+	<%= p.text_field :address, placeholder: "Address of place" %><br />
+	<%= p.text_field :photo, placeholder: "photo URL" %><br />
+	<%= p.text_field :notes, placeholder: "notes..." %><br />
+	<%= p.submit "Submit" %>
+<% end %>
+
+<%= link_to "Back to Main Page", users_path %>

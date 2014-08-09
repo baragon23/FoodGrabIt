@@ -5,5 +5,5 @@ class Place
   field :photo, type: String
   field :notes, type: String
 
-  embedded_in :user
+  belongs_to :user
 end

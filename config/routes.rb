@@ -2,8 +2,29 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get 'users/' => 'users#index'
-  root 'users#index'
+  resource :session, only: [:new, :create, :destroy] # no idea what this does
+
+  root  'users#index'
+
+  get   'users/' =>         'users#index', as: :users
+
+  post  'users/' =>         'users#create'
+
+  get   'users/new' =>      'users#new', as: :new_user #allows us to have a new_user_path variable
+
+  get   'users/:id' =>      'users#show', as: :user
+
+  get   'users/:id/edit' => 'users#edit'
+
+  patch 'users/:id' =>      'users#update'
+
+  delete 'users/:id' =>     'users#destroy'
+
+
+  post   'places/' =>        'places#create'
+
+  get   'places/new' =>     'places#new', as: :new_place
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

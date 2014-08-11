@@ -1,15 +1,4 @@
 <h1>Listing of Places</h1>
 
-<ul>
-	<% @places.each do |p| %>
-		<li>
-			Name: <%= p.name %>
-		</li>
-	<% end %>
-</ul>
 
-<% if current_user %>
-	<%= link_to "Add a place", new_place_path %>
-<% else %>
-	
-<% end %>
+

@@ -1,0 +1,17 @@
+<h1>Homepage - You Must Be Hungry</h1>
+
+<% if current_user %>
+	<%= link_to "Add a place", new_place_path %>
+<% else %>
+	
+<% end %>
+<br />
+<%= image_tag "sample_map.jpg" %>
+
+<ul>
+	<% @places.each do |p| %>
+		<li>
+			Name: <%= p.name %>
+		</li>
+	<% end %>
+</ul>

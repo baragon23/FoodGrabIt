@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy] # no idea what this does
 
-  root  'users#index'
+  root  'static#index'
 
   get   'users/' =>         'users#index', as: :users
 
@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   post   'places/' =>        'places#create'
 
   get   'places/new' =>     'places#new', as: :new_place
+
+
+  get   'home/'     =>      'home#index', as: :home
 
 
   # You can have the root of your site routed with "root"

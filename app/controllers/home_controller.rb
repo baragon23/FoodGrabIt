@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
 	def index
-		@places = Place.all
+		@places = current_user.places.all
 	end
 end

@@ -1,3 +1,20 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+li {
+	list-style-type: none;
+	padding: 15px;
+	border-bottom: 2px solid rgb(230, 227, 217);
+}
+
+li:hover{
+	background-color: rgb(230, 227, 217);
+}
+
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#map-canvas { 
+	height: 350px;
+	width: 100%;
+}

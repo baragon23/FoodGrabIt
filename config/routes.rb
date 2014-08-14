@@ -6,25 +6,26 @@ Rails.application.routes.draw do
 
   root  'static#index'
 
-  get   'users/' =>         'users#index', as: :users
+  # get   'users/' =>         'users#index', as: :users
 
-  post  'users/' =>         'users#create'
+  # post  'users/' =>         'users#create'
 
-  get   'users/new' =>      'users#new', as: :new_user #allows us to have a new_user_path variable
+  # get   'users/new' =>      'users#new', as: :new_user #allows us to have a new_user_path variable
 
-  get   'users/:id' =>      'users#show', as: :user
+  # get   'users/:id' =>      'users#show', as: :user
 
-  get   'users/:id/edit' => 'users#edit'
+  # get   'users/:id/edit' => 'users#edit'
 
-  patch 'users/:id' =>      'users#update'
+  # patch 'users/:id' =>      'users#update'
 
-  delete 'users/:id' =>     'users#destroy'
+  # delete 'users/:id' =>     'users#destroy'
 
-
-  post   'places/' =>        'places#create'
+  resources :users
+  post   'places/' =>       'places#create'
 
   get   'places/new' =>     'places#new', as: :new_place
 
+  delete 'places/:id' =>    'places#destroy'
 
   get   'home/'     =>      'home#index', as: :home
 

@@ -1,17 +1,79 @@
+
+
 <h1>Homepage - You Must Be Hungry</h1>
+
+<br />
+
+    <script type="text/javascript">
+      
+      function initialize() {
+        
+		var stupid = [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]
+
+		var places = [
+			{
+				lat: 34.0194543000,
+				lng: -118.491191200,
+				title: "My new marker 1"
+			},
+			{
+				lat: 35.0194543000,
+				lng: -118.491191200,
+				title: "My new marker 2"
+			},
+			{
+				lat: 33.0194543000,
+				lng: -118.491191200,
+				title: "My new marker 3"
+			},
+			{
+				lat: 32.0194543000,
+				lng: -118.491191200,
+				title: "My new marker 4"
+			}
+		];
+
+		var myLatlng = new google.maps.LatLng(places[0].lat, places[0].lng);
+
+        var mapOptions = {
+          center: new google.maps.LatLng(34.0194543000, -118.491191200),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+    		styles: stupid
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      	
+
+        for(var i = 0; i < places.length; i++) {
+        	var marker = new google.maps.Marker({
+			    position: new google.maps.LatLng(places[i].lat, places[i].lng),
+			    map: map,
+			    title: places[i].title
+			});
+        }
+
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+<div id="map-canvas"/></div>
 
 <% if current_user %>
 	<%= link_to "Add a place", new_place_path %>
 <% else %>
 	
 <% end %>
-<br />
-<%= image_tag "sample_map.jpg" %>
 
 <ul>
 	<% @places.each do |p| %>
 		<li>
-			Name: <%= p.name %>
+			Name: <%= p.name %> <br />
+			Address: <%= p.address %> <br />
+			Notes: <%= p.notes %> <br />
+			<%= link_to "Delete", 'places/' + p.id, method: :delete %>
 		</li>
 	<% end %>
 </ul>

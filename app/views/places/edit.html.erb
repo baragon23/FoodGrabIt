@@ -1,0 +1,13 @@
+<h1> Edit this place </h1>
+
+<%= form_for @place do |f| %>
+	<%= f.text_field :name, placeholder: "Name" %>
+	<%= f.text_field :address, placeholder: "Address" %>
+	<%= f.text_field :photo, placeholder: "Photo" %>
+	<%= f.text_field :notes, placeholder: "Notes" %>
+
+	<%= f.submit "Submit" %>
+
+<% end %>
+
+<%= link_to "Back to Home", places_path %>

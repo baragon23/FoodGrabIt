@@ -21,13 +21,25 @@ Rails.application.routes.draw do
   # delete 'users/:id' =>     'users#destroy'
 
   resources :users
+
+  # resources :places
+
+  get 'places/' => 'places#index'
+  
   post   'places/' =>       'places#create'
 
   get   'places/new' =>     'places#new', as: :new_place
 
+  get   'places/:id/edit' =>'places#edit', as: :edit_place
+
+  get 'places/:id' => 'places#show', as: :place
+
+  patch 'places/:id'  =>    'places#update'
+
   delete 'places/:id' =>    'places#destroy'
 
   get   'home/'     =>      'home#index', as: :home
+
 
 
   # You can have the root of your site routed with "root"

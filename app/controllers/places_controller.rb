@@ -1,6 +1,10 @@
 class PlacesController < ApplicationController
 	def index
-		@places = Place.all
+		if !current_user 
+			redirect_to root_path
+		else
+			@places = current_user.places.all
+		end
 	end
 
 	def new

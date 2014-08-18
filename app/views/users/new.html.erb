@@ -1,8 +1,40 @@
-<h1>Sign Up</h1>
+<! --- ROOT HOME PAGE -------- ->
 
-<%= form_for @user do |f| %>
-	<%= f.text_field :name, placeholder: "Name" %><br />
-	<%= f.text_field :email, placeholder: "Email" %><br />
-	<%= f.password_field :password, placeholder: "password" %><br />
-	<%= f.submit "Submit" %>
-<% end %>
+<script>
+$(document).ready(function() {
+	$('#signup-menu').sidr({
+		name: 'sidr-signup',
+		side: 'right'
+	});
+	$('#login-menu').sidr({
+		name: 'sidr-login',
+		side: 'right'
+	});
+});
+</script>
+
+<div class="row pull-right">
+	<a id="signup-menu" href="#sidr-signup">Sign Up</a> | 
+	<a id="login-menu" href="#sidr-login">Log In</a>
+</div>
+
+<div id="map" style="display:none"></div>
+
+<h1>Food Grab Home Page</h1>
+
+<div id="sidr-signup">
+	<%= form_for @user do |f| %>
+		<%= f.text_field :name, placeholder: "Name" %><br />
+		<%= f.text_field :email, placeholder: "Email" %><br />
+		<%= f.password_field :password, placeholder: "password" %><br />
+		<%= f.submit "Submit" %>
+	<% end %>
+</div>
+
+<div id="sidr-login">
+	<%= form_for @user, {url: session_path} do |f| %>
+		<%= f.text_field :email, placeholder: "your super secret email address.." %><br />
+		<%= f.password_field :password, placeholder: "password ..." %><br />
+		<%= f.submit "Log In" %>
+	<% end %>
+</div>

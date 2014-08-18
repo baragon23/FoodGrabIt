@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resource :session, only: [:new, :create, :destroy] # no idea what this does
+  resource :session, only: [:new, :create, :destroy]
 
-  root  'static#index'
+  #root  'static#index'
+  root    'users#new'
 
   # get   'users/' =>         'users#index', as: :users
 

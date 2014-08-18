@@ -2,8 +2,8 @@ var map;
 $(document).ready(function() {
 	map = new GMaps({
         div: '#map',
-        lat: -12.043333,
-        lng: -77.028333,
+        lat: 40.7127,
+        lng: 74.0059,
         zoom: 12
 	});
 
@@ -24,12 +24,19 @@ $(document).ready(function() {
 
 	//console.log($('span[class="name"]').text());
 	var i = 0, placeName, placeAddress, placeNotes;
+	var geoAddress = {
+		lat: 0,
+		lng: 0,
+		name: "",
+		notes: ""
+	};
+	var geoAddresses = new Array();
 
   	$('li[class="places"]').each(function() {
   		placeName = $('span[class="name' + i + '"]').text();
   		placeAddress = $('span[class="address' + i + '"]').text();
   		placeNotes = $('span[class="notes' + i + '"]').text();
-  		console.log(placeName + ' ' + i + ' ' + placeAddress);
+  		//console.log(placeName + ' ' + i + ' ' + placeAddress);
 
   		GMaps.geocode({
 	  		address: placeAddress,
@@ -37,18 +44,30 @@ $(document).ready(function() {
 		    	if (status == 'OK') {
 					var latlng = results[0].geometry.location;
 					map.setCenter(latlng.lat(), latlng.lng());
-					map.addMarker({
-						lat: latlng.lat(),
-						lng: latlng.lng(),
-						title: placeName,
-						infoWindow: {
-							content: placeName + '<br />' + placeNotes
-						}
-					});
+					// addmarker
+					geoAddress.lat = latlng.lat();
+					geoAddress.lng = latlng.lng();
+					geoAddress.name = placeName;
+					geoAddress.notes = placeNotes;
+					geoAddresses.push(geoAddress);
 		    	}
 	  		}
 		});
 		i++;
   	});
+  	
+  	for (var j = 0; j < geoAddresses.length; j++) {
+  		map.addMarker({
+			lat: geoAddresses[j].lat,
+			lng: geoAddresses[j].lng,
+			title: geoAddresses[j].name,
+			infoWindow: {
+				content: geoAddresses[j].name + '<br />' + geoAddresses[j].notes
+			}
+		});
+
+		
+  	}
+  	console.log("length: " + geoAddresses.length + " " );
 
 });

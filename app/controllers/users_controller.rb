@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 	def index
+		if current_user 
+			redirect_to places_path
+		end
 		@users = User.all
 		@places = Place.all
 	end
@@ -15,7 +18,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params.require(:user).permit(:name, :email, :password))
 		if @user.save
-			redirect_to places_path
+			redirect_to root_path
 		else
 			render :new
 		end

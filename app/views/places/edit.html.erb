@@ -1,13 +1,27 @@
-<h1> Edit this place </h1>
+<style type="text/css">
+	body {
+		color: #ffffff;
+	}
+</style>
 
-<%= form_for @place do |f| %>
-	<%= f.text_field :name, placeholder: "Name" %>
-	<%= f.text_field :address, placeholder: "Address" %>
-	<%= f.text_field :photo, placeholder: "Photo" %>
-	<%= f.text_field :notes, placeholder: "Notes" %>
+<div class="container">
+	<div id="form-container">
+	<%= form_for @place do |f| %>
+		<div class="field form-group">
+			<%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+		</div>
+		<div class="field form-group">
+			<%= f.text_field :address, placeholder: "Address", class: "form-control" %>
+		</div>
 
-	<%= f.submit "Submit" %>
-
-<% end %>
-
-<a href="javascript:window.history.back()">Go Back</a>
+		<div class="field form-group">
+			<%= f.text_field :notes, placeholder: "Notes", class: "form-control" %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Submit", class: "btn btn-default" %>
+		</div>
+	<% end %>
+	<p>&nbsp;</p>
+	<a class="btn btn-success" href="javascript:window.history.back()">Go Back</a>
+</div>
+</div>

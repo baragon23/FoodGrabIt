@@ -68,6 +68,6 @@ $(document).ready(function() {
 
 		
   	}
-  	console.log("length: " + geoAddresses.length + " " );
+  	console.log("length: " + geoAddresses.length);
 
 });

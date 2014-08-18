@@ -28,6 +28,12 @@
 */
 
 
+
+body {
+	background-color: rgb(44, 33, 35);
+}
+
+
 input {
 	color: black;
 }

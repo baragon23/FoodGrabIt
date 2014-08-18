@@ -1,3 +1,27 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	background-image: image-url('food_background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.title {
+	font-size: 34px;
+	text-align: center;
+	font-family: Helvetica;
+}
+
+h2 {
+	margin-top: 30px;
+}
+
+.map-background {
+	background-image: image-url('google_map.png');
+	background-size: 200px;
+	background-repeat: no-repeat;
+	height: 500px;
+}

@@ -1,3 +1,29 @@
 // Place all the styles related to the places controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#map {
+	width: 800px;
+	margin: 15px auto;
+	height: 300px;
+}
+
+ul {
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+	padding: 15px;
+	border-bottom: 2px solid rgb(230, 227, 217);
+}
+
+.place-name {
+	font-size: 20px;
+	color: orange;
+}
+
+#form-container {
+	margin-top: 50px;
+	width: 350px;
+}

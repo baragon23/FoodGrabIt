@@ -1,12 +1,32 @@
-<h1>Add a place</h1>
+<style type="text/css">
+	body {
+		color: #ffffff;
+	}
+</style>
 
 
-<%= form_for @place do |p| %>
-	<%= p.text_field :name, placeholder: "Name" %><br />
-	<%= p.text_field :address, placeholder: "Address of place" %><br />
-	<%= p.text_field :photo, placeholder: "photo URL" %><br />
-	<%= p.text_field :notes, placeholder: "notes..." %><br />
-	<%= p.submit "Submit" %>
-<% end %>
 
-<a href="javascript:window.history.back()">Go Back</a>
+<div class="container">
+	<h1>Add a place</h1>
+	<div id="form-container">
+
+		<%= form_for @place do |p| %>
+			<div class="field form-group">
+				<%= p.text_field :name, placeholder: "Name", class: "form-control" %><br />
+			</div>
+			<div class="field form-group">
+				<%= p.text_field :address, placeholder: "Address of place", class: "form-control" %><br />
+			</div>
+
+			<div class="field form-group">
+				<%= p.text_field :notes, placeholder: "notes...", class: "form-control" %><br />
+			</div>
+			<div class="actions">
+				<%= p.submit "Submit", class: "btn btn-default" %>
+			</div>
+		<% end %>
+		<p>&nbsp;</p>
+		<a class="btn btn-success" href="javascript:window.history.back()">Go Back</a>
+
+</div>
+</div>

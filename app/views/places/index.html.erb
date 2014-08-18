@@ -1,24 +1,39 @@
+<style type="text/css">
+	body {
+		color: #ffffff;
+	}
 
-<h1>Homepage - You Must Be Hungry</h1>
+	a {
+		color: orange;
+	}
+</style>
+
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4 title">Food Grab</div>
+	<div class="col-md-4"></div>
+</div>
 
 <br />
 
 <div id="map"></div>
 
-<% if current_user %>
-	<%= link_to "Add a place", new_place_path %>
-<% else %>
-<% end %>
-<% @count = 0 %>
-<ul>
-	<% @places.each do |p| %>
-		<li class="places">
-			Name: <span class="name<%= @count %>"><%= p.name %></span> <br />
-			Address: <span class="address<%= @count %>"><%= p.address %></span> <br />
-			Notes: <span class="notes<%= @count %>"><%= p.notes %></span> <br />
-			<%= link_to "Delete", 'places/' + p.id, method: :delete %>
-			<%= link_to 'Edit', edit_place_path(p) %>
-		</li>
-		<% @count = @count + 1 %>
+<div class="container">
+	<% if current_user %>
+		<%= link_to "Add a place", new_place_path, class: "btn btn-success" %>
+	<% else %>
 	<% end %>
-</ul>
+	<% @count = 0 %>
+	<ul>
+		<% @places.each do |p| %>
+			<li class="places">
+				<span class="name<%= @count %> place-name"><%= p.name %></span> <br />
+				Address: <span class="address<%= @count %>"><%= p.address %></span> <br />
+				Notes: <span class="notes<%= @count %>"><%= p.notes %></span> <br />
+				<%= link_to "Delete", 'places/' + p.id, method: :delete, class: "btn btn-danger" %>
+				<%= link_to 'Edit', edit_place_path(p), class: "btn btn-info" %>
+			</li>
+			<% @count = @count + 1 %>
+		<% end %>
+	</ul>
+</div>

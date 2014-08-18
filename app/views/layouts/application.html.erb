@@ -16,7 +16,7 @@
 	<div class="login-shiv">
 		<% if current_user %>
 			Welcome, <%= current_user.name %> --
-			<%= link_to "Log out", session_path, method: :delete %>
+			<%= link_to "Log out", session_path, method: :delete, class: "btn btn-success" %>
 		<% else %>
 			<%#= link_to "Sign up", new_user_path %>  
 			<%#= link_to "Log in", new_session_path %>
@@ -24,8 +24,8 @@
 	</div>
 </div>
 
-<div class="container">
+
 	<%= yield %>
-</div>
+
 </body>
 </html>

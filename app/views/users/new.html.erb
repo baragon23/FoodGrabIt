@@ -19,45 +19,48 @@ $(document).ready(function() {
 });
 </script>
 
-<div class="row pull-right login-shiv">
-
-</div>
-
-<div class="row">
-	<div class="col-md-4"></div>
-	<div class="col-md-4 title">Food Grab</div>
-	<div class="col-md-4"></div>
-</div>
-
-<div id="map" style="display:none"></div>
-
-<div class="row">
-	<div class="col-md-3"></div>
-	<div class="col-md-3 text-center">
-		<h2 class="title" style="font-size: 24px">Never forget where to eat again</h2>
-		<p>We all forget some of the tasty places we have discovered to eat. 
-			Allow Food Grab to save your favorite places for you on a Google Map.</p>
-		<a id="signup-menu" class="btn btn-primary" href="#sidr-signup">Sign Up</a> | 
-		<a id="login-menu" class="btn btn-success" href="#sidr-login">Log In</a>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 title">Food Grab</div>
+		<div class="col-md-4"></div>
 	</div>
-	<div class="col-md-3 map-background">
+
+	<!-- required to avoid javascript errors from places.js -->
+	<div id="map" style="display:none"></div>
+
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-3 text-center">
+			<h2 class="subtitle">Never forget where to eat again</h2>
+			<p>We all forget some of the tasty places we have discovered to eat. 
+				Allow Food Grab to save your favorite places for you on a Google Map.</p>
+			<a id="signup-menu" class="btn btn-primary" href="#sidr-signup">Sign Up</a> | 
+			<a id="login-menu" class="btn btn-success" href="#sidr-login">Log In</a>
+		</div>
+		<div class="col-md-3 map-background">
+		</div>
+		<div class="col-md-3"></div>
 	</div>
-	<div class="col-md-3"></div>
 </div>
 
 <div id="sidr-signup">
-	<%= form_for @user do |f| %>
-		<%= f.text_field :name, placeholder: "Name" %><br />
-		<%= f.text_field :email, placeholder: "Email" %><br />
-		<%= f.password_field :password, placeholder: "Password" %><br />
-		<%= f.submit "Submit" %>
-	<% end %>
+	<div id="signup-form">
+		<%= form_for @user do |f| %>
+			<%= f.text_field :name, placeholder: "Name" %><br />
+			<%= f.text_field :email, placeholder: "Email" %><br />
+			<%= f.password_field :password, placeholder: "Password" %><br />
+			<%= f.submit "Submit" %>
+		<% end %>
+	</div>
 </div>
 
 <div id="sidr-login">
-	<%= form_for @user, {url: session_path} do |f| %>
-		<%= f.text_field :email, placeholder: "your email address.." %><br />
-		<%= f.password_field :password, placeholder: "password ..." %><br />
-		<%= f.submit "Log In" %>
-	<% end %>
+	<div id="login-form">
+		<%= form_for @user, {url: session_path} do |f| %>
+			<%= f.text_field :email, placeholder: "your email address.." %><br />
+			<%= f.password_field :password, placeholder: "password ..." %><br />
+			<%= f.submit "Log In" %>
+		<% end %>
+	</div>
 </div>

@@ -10,9 +10,14 @@ body {
 }
 
 .title {
-	font-size: 34px;
 	text-align: center;
-	font-family: Helvetica;
+	font-family: 'Raleway', sans-serif;
+	font-size: 52px;
+}
+
+.subtitle {
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
 }
 
 h2 {
@@ -24,4 +29,8 @@ h2 {
 	background-size: 200px;
 	background-repeat: no-repeat;
 	height: 500px;
+}
+
+#signup-form, #login-form {
+	margin-top: 25px;
 }

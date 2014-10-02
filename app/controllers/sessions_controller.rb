@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 			redirect_to places_path
 		else
 			# Go back to the login page
-			redirect_to new_session_path
+			redirect_to root_path
 		end
 	end
 

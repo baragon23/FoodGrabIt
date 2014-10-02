@@ -16,6 +16,7 @@
 
 @import 'bootstrap';
 
+
 .login-shiv {
 	margin-right: 15px;
 }
@@ -27,13 +28,21 @@
 }
 */
 
-
+html { height: 100% }
 
 body {
+	height: 100%; 
+	margin: 0; 
+	padding: 0;
 	background-color: rgb(44, 33, 35);
 }
 
 
 input {
 	color: black;
+}
+
+.title {
+	font-family: 'Raleway', sans-serif;
+	font-size: 46px;
 }

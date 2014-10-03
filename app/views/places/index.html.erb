@@ -15,21 +15,28 @@
 	<div class="row">
 		<div id="map"></div>
 	</div>
-	<%= link_to "Add a place", new_place_path, class: "btn-lg btn-success place-button" %>
+
+	<div class="row">
+		<%= link_to "Add a place", new_place_path, class: "btn-lg btn-success place-button" %>
+	</div>
 
 	<% @count = 0 %>
 
 	<div class="row">
 		<ul>
-			<% @places.each do |p| %>
-				<li class="places">
-					<span class="name<%= @count %> place-name"><%= p.name %></span> <br />
-					<p><strong>Address:</strong> <span class="address<%= @count %>"><%= p.address %></span></p>
-					<p><strong>Notes:</strong> <span class="notes<%= @count %>"><%= p.notes %></span></p>
-					<%= link_to "Delete", 'places/' + p.id, method: :delete, class: "btn btn-danger" %>
-					<%= link_to 'Edit', edit_place_path(p), class: "btn btn-info" %>
-				</li>
-				<% @count = @count + 1 %>
+			<% if @places.empty? %>
+				<h3>You currently don't have any favorite places to eat saved. Click the "Add A Place" button to save a place.</h3>
+			<% else %>
+				<% @places.each do |p| %>
+					<li class="places">
+						<span class="name<%= @count %> place-name"><%= p.name %></span> <br />
+						<p><strong>Address:</strong> <span class="address<%= @count %>"><%= p.address %></span></p>
+						<p><strong>Notes:</strong> <span class="notes<%= @count %>"><%= p.notes %></span></p>
+						<%= link_to "Delete", 'places/' + p.id, method: :delete, class: "btn btn-danger" %>
+						<%= link_to 'Edit', edit_place_path(p), class: "btn btn-info" %>
+					</li>
+					<% @count = @count + 1 %>
+				<% end %>
 			<% end %>
 		</ul>
 	</div>

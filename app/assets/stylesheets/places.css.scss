@@ -6,10 +6,10 @@
 	width: 800px;
 	margin: 15px auto;
 	height: 300px;
+	border-radius: 4px;
 }
 
 ul {
-	margin-top: 60px;
 	padding: 0;
 }
 
@@ -21,6 +21,8 @@ li {
 
 li:hover {
 	background-color: rgba(50, 36, 17, .7);
+	transition: background-color .2s linear;
+	border-radius: 4px;
 }
 
 .place-name {

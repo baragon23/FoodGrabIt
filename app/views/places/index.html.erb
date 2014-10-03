@@ -1,8 +1,4 @@
-<style type="text/css">
-	body {
-		color: #ffffff;
-	}
-</style>
+
 
 <div class="container">
 	<div class="row">
@@ -12,32 +8,42 @@
 	</div>
 
 	<br />
-	<div class="row">
-		<div id="map"></div>
-	</div>
+	<div class="row" style="height: 600px">
+		<div class="col-md-6" style="height: 100%">
+			<div id="map"></div>
+		</div>
+		<div class="col-md-6">
+			
+			<div class="row">
+				<%= link_to "Add a place", new_place_path, class: "btn-lg btn-success place-button" %>
+			</div>
 
-	<div class="row">
-		<%= link_to "Add a place", new_place_path, class: "btn-lg btn-success place-button" %>
-	</div>
+			<div class="row">&nbsp;</div>
 
-	<% @count = 0 %>
+			<% @count = 0 %>
 
-	<div class="row">
-		<ul>
-			<% if @places.empty? %>
-				<h3>You currently don't have any favorite places to eat saved. Click the "Add A Place" button to save a place.</h3>
-			<% else %>
-				<% @places.each do |p| %>
-					<li class="places">
-						<span class="name<%= @count %> place-name"><%= p.name %></span> <br />
-						<p><strong>Address:</strong> <span class="address<%= @count %>"><%= p.address %></span></p>
-						<p><strong>Notes:</strong> <span class="notes<%= @count %>"><%= p.notes %></span></p>
-						<%= link_to "Delete", 'places/' + p.id, method: :delete, class: "btn btn-danger" %>
-						<%= link_to 'Edit', edit_place_path(p), class: "btn btn-info" %>
-					</li>
-					<% @count = @count + 1 %>
-				<% end %>
-			<% end %>
-		</ul>
+			<div class="row">
+				<ul>
+					<% if @places.empty? %>
+						<h3>You currently don't have any favorite places to eat saved. Click the "Add A Place" button to save a place.</h3>
+					<% else %>
+						<% @places.each do |p| %>
+							<li class="places">
+								<span class="name<%= @count %> place-name"><%= p.name %></span> 
+								<span class="pull-right admin">
+									<%= link_to 'Edit', edit_place_path(p), class: "btn-sm btn-info" %>
+									<%= link_to "Delete", 'places/' + p.id, method: :delete, class: "btn-sm btn-danger" %>
+								</span>
+								<br />
+								<p><strong>Address:</strong> <span class="address<%= @count %>"><%= p.address %></span></p>
+								<p><strong>Notes:</strong> <span class="notes<%= @count %>"><%= p.notes %></span></p>
+							</li>
+							<% @count = @count + 1 %>
+						<% end %>
+					<% end %>
+				</ul>
+			</div>
+
+		</div>
 	</div>
 </div>

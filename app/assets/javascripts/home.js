@@ -3,10 +3,11 @@ $(document).ready(function() {
 	map = new GMaps({
         div: '#map',
         lat: -12.043333,
-        lng: -77.028333
+        lng: -77.028333,
+        zoom: 11
 	});
 
-	GMaps.geolocate({
+	/*GMaps.geolocate({
 		success: function(position){
 		  map.setCenter(position.coords.latitude, position.coords.longitude);
 		},
@@ -19,10 +20,14 @@ $(document).ready(function() {
 		always: function(){
 		  //alert("Done!");
 		}
-	});
+	});*/
 
-  	$('span').each(function() {
-  		var placeAddress = $(this).text();
+	var i = 0;
+
+  	$('li[class="places"]').each(function() {
+  		var placeAddress = $('span[class="address' + i + '"]').text();
+  		var placeName = $('span[class="name' + i + ' place-name"]').text();
+  		var placeNotes = $('span[class="notes' + i + '"]').text();
 
   		GMaps.geocode({
 	  		address: placeAddress,
@@ -32,11 +37,16 @@ $(document).ready(function() {
 					map.setCenter(latlng.lat(), latlng.lng());
 					map.addMarker({
 						lat: latlng.lat(),
-						lng: latlng.lng()
+						lng: latlng.lng(),
+						title: placeName,
+						infoWindow: {
+							content: '<div class="info-window"><strong>' + placeName + '</strong><br />' + placeNotes + '</div>'
+						}
 					});
 		    	}
 	  		}
 		});
+		i++;
   	});
 
 });

@@ -1,25 +1,28 @@
-<style type="text/css">
-	body {
-		color: #ffffff;
-	}
-</style>
-
-
 
 <div class="container">
 	<h1>Add a place</h1>
 	<div id="form-container">
 
 		<%= form_for @place do |p| %>
+			
+			<% if @place.errors.any? %>
+				<ul>
+					<% @place.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			<% end %>
+
 			<div class="field form-group">
-				<%= p.text_field :name, placeholder: "Name", class: "form-control" %><br />
+				<%= p.text_field :name, placeholder: "Name of place", class: "form-control" %><br />
 			</div>
 			<div class="field form-group">
+				Example: 225 Santa Monica Blvd, Santa Monica, CA 90401
 				<%= p.text_field :address, placeholder: "Address of place", class: "form-control" %><br />
 			</div>
 
 			<div class="field form-group">
-				<%= p.text_field :notes, placeholder: "notes...", class: "form-control" %><br />
+				<%= p.text_field :notes, placeholder: "Notes...", class: "form-control" %><br />
 			</div>
 			<div class="actions">
 				<%= p.submit "Submit", class: "btn btn-default" %>
@@ -28,5 +31,5 @@
 		<p>&nbsp;</p>
 		<a class="btn btn-success" href="javascript:window.history.back()">Go Back</a>
 
-</div>
+	</div>
 </div>

@@ -1,3 +1,17 @@
+//executes when user clicks either signup or login
+//shows the side panel containing the signup or login form
+$(document).ready(function() {
+	$('#signup-menu').sidr({
+		name: 'sidr-signup',
+		side: 'right'
+	});
+	$('#login-menu').sidr({
+		name: 'sidr-login',
+		side: 'right'
+	});
+});
+
+
 var map;
 $(document).ready(function() {
 	map = new GMaps({
@@ -7,23 +21,25 @@ $(document).ready(function() {
         zoom: 11
 	});
 
-	/*GMaps.geolocate({
+	//get user's current location and center map to that location
+	GMaps.geolocate({
 		success: function(position){
 		  map.setCenter(position.coords.latitude, position.coords.longitude);
 		},
 		error: function(error){
-		  console.log('Geolocation failed: ' + error.message);
+		  //console.log('Geolocation failed: ' + error.message);
 		},
 		not_supported: function(){
-		  alert("Your browser does not support geolocation");
+		  //alert("Your browser does not support geolocation");
 		},
 		always: function(){
 		  //alert("Done!");
 		}
-	});*/
+	});
 
 	var i = 0;
 
+	//loop through restaurants and get the name, notes, and address for geocoding
   	$('li[class="places"]').each(function() {
   		var placeAddress = $('span[class="address' + i + '"]').text();
   		var placeName = $('span[class="name' + i + ' place-name"]').text();

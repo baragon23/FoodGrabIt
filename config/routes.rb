@@ -4,22 +4,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  #root  'static#index'
   root    'users#new'
-
-  # get   'users/' =>         'users#index', as: :users
-
-  # post  'users/' =>         'users#create'
-
-  # get   'users/new' =>      'users#new', as: :new_user #allows us to have a new_user_path variable
-
-  # get   'users/:id' =>      'users#show', as: :user
-
-  # get   'users/:id/edit' => 'users#edit'
-
-  # patch 'users/:id' =>      'users#update'
-
-  # delete 'users/:id' =>     'users#destroy'
 
   resources :users
 
@@ -39,6 +24,5 @@ Rails.application.routes.draw do
 
   delete 'places/:id' =>    'places#destroy'
 
-  get   'home/'     =>      'home#index', as: :home
 
 end

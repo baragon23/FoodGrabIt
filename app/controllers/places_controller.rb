@@ -40,8 +40,6 @@ class PlacesController < ApplicationController
 	def destroy
 		@place = Place.find(params[:id])
 		@place.destroy
-	    # Exactly the same idea as this little number:
-		# Place.find_by(id: params[:id])
 	    redirect_to places_path
 	end
 
